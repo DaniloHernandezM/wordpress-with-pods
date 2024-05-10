@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service  #Tipo de objeto
+
+metadata:
+  name: svc-mysql
+  labels:
+    app: web-wordpress
+    version: v1
+spec:    #Aspectos técnicos
+  type: ClusterIP
+  selector:
+    microservice: mysql
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
